@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// A utility function to print an array of size n
+// print function
 void printArray(int arr[], int n)
 {
     int i;
@@ -9,7 +9,7 @@ void printArray(int arr[], int n)
     printf("\n");
 }
 
-
+// selection sort algorithm
 void selectionSort(int arr[], int n)
 {
 	int i, j, min_idx, temp;
