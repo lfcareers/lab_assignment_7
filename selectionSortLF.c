@@ -1,64 +1,47 @@
 #include <stdio.h>
 
-void selectionSort(int array[], int size, int swapCount[])
+// A utility function to print an array of size n
+void printArray(int arr[], int n)
 {
-    int i, j, imin;
-    for (i = 0; i < size - 1; i++)
-    {
-        imin = i; // get index of minimum data
-        for (j = i + 1; j < size; j++)
-            if (array[j] < array[imin])
-                imin = j;
-
-        // placing in the correct position
-        int temp;
-        temp = array[i];
-        array[i] = array[imin];
-        array[imin] = temp;
-
-        // count the swap for the current element
-        swapCount[imin]++;
-    }
+    int i;
+    for (i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
 }
+
+
+void selectionSort(int arr[], int n)
+{
+	int i, j, min_idx, temp;
+	// One by one move boundary of unsorted subarray
+	for (i = 0; i < n-1; i++)
+	{
+	    printf("\nIteration# %d\n",i+1);
+		// Find the minimum element in unsorted array
+		min_idx = i;
+		for (j = i+1; j < n; j++)
+		if (arr[j] < arr[min_idx])
+			min_idx = j;
+		// Swap the found minimum element with the first element
+		temp = arr[i];
+		arr[i] = arr[min_idx];
+		arr[min_idx] = temp;
+
+		printArray(arr, n);
+	}
+}
+
 
 int main()
 {
-    int n;
-    int arr[] = {97, 16, 45, 63, 13, 22, 7, 58, 72}; // initialize the array
-    int swapCount[n];
+    int arr[] = { 5,	8,	3,	1,	4,	7,	6,	2};
+    int n = 8; //size of the array
 
-    // Initialize swap count for all elements to 0
-    for (int i = 0; i < n; i++)
-    {
-        swapCount[i] = 0;
-    }
+     printArray(arr, n);
 
-    printf("Array before Sorting: ");
-    for (int i = 0; i < n; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
+    selectionSort(arr, n);
 
-    selectionSort(arr, n, swapCount);
-
-    printf("Array after Sorting: ");
-    for (int i = 0; i < n; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-
-    printf("Swap Counts:  \n");
-    // Print the swap counts for each element
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d: # of times %d is swapped.\n", arr[i], swapCount[i]);
-    }
-
-    // Calculate and print the total number of swaps
-    int totalSwaps = 0;
-    for (int i = 0; i < n; i++)
-    {
-        totalSwaps += swapCount[i];
-    }
-    printf("Total # of swaps: %d\n", totalSwaps);
+    printArray(arr, n);
 
     return 0;
 }
