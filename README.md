@@ -1,12 +1,5 @@
 # lab_assignment_7 submission
 
-Two sorting algorithms
+Two sorting algorithms, Bubble Sort & Insertion Sort.
 
-Bubble Sort
-
-&
-
-Insertion Sort
-
-
-Code will sort an array and return then n amount of iterations necessary to complete the algorithm
+Code will sort an array and return the n amount of shuffles necessary to complete the algorithm.
