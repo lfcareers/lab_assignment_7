@@ -29,7 +29,12 @@ void selectionSort(int arr[], int n)
 
 int main()
 {
-	int arr[] = {97, 16, 45, 63, 13, 22, 7, 58, 72};
+	int arr0[] = {97, 16, 45, 63, 13, 22, 7, 58, 72};
+	arr0 = (int *)malloc(n * sizeof(int));
+	
+	int arr[] = {90, 80, 70, 60, 50, 40, 30, 20, 10};
+	arr = (int *)malloc(n * sizeof(int));
+	
 	int n = 9; // size of the array
 
 	printArray(arr, n);
@@ -38,5 +43,12 @@ int main()
 
 	printArray(arr, n);
 
+	printArray(arr0, n);
+
+	selectionSort(arr0, n);
+
+	printArray(arr0, n);
+
+	
 	return 0;
 }
