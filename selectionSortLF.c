@@ -13,7 +13,8 @@ void printArray(int arr[], int n)
 void selectionSortWithSwaps(int arr[], int n)
 {
     int i, j, min_idx, temp;
-    int swaps[n]; // Array to store the number of swaps for each element
+    int swaps[n];       // Array to store the number of swaps for each element
+    int totalSwaps = 0; // Variable to store the total number of swaps
 
     // Initialize swaps array with zeros
     for (i = 0; i < n; i++)
@@ -28,18 +29,23 @@ void selectionSortWithSwaps(int arr[], int n)
             if (arr[j] < arr[min_idx])
                 min_idx = j;
 
-        // Count the swap for the minimum element
+        // Count the swaps for the minimum element
         swaps[min_idx]++;
 
         // Swap the found minimum element with the first element
         temp = arr[i];
         arr[i] = arr[min_idx];
         arr[min_idx] = temp;
+
+        // Update the total swaps
+        totalSwaps += swaps[min_idx];
+
+        // Print the number of swaps for the current element
+        printf("%d: # of times %d is swapped\n", arr[i], swaps[min_idx]);
     }
 
-    // Print the number of swaps for each element
-    for (i = 0; i < n; i++)
-        printf("%d: # of times %d is swapped\n", arr[i], swaps[i]);
+    // Print the total number of swaps
+    printf("total # of swaps: %d\n", totalSwaps);
 }
 
 int main()
